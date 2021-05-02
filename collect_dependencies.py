@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-from sys import stderr, exit
+from sys import stderr, exit, argv
+
 try:
     from urllib.request import urlopen
     from urllib.error import HTTPError
@@ -9,16 +10,21 @@ except ImportError as ex:
     stderr.write('\nfailed to import urllib, maybe not using python3?\n')
     exit(1)
 
-url = 'https://raw.githubusercontent.com/mangolang/compiler/master/Cargo.lock'
+if len(argv) < 2:
+    stderr.write('\nargument should be the path to a Cargo.lock file\n\n')
+    exit(1)
+
+path = argv[1]
 try:
-    data = urlopen(url).read().decode('utf-8')
+    with open(path, 'r') as fh:
+        data = fh.read()
 except HTTPError as ex:
     print(ex)
     stderr.write('\nfailed to download file, maybe it has moved, or there is a connection problem\n\n'.format(url))
     exit(1)
 
 started = False
-deps = []
+deps = {}
 name = None
 for line in data.splitlines():
     if line.startswith('[['):
@@ -31,8 +37,8 @@ for line in data.splitlines():
     if line.startswith('version = '):
         version = line[11:-1]
         assert name is not None
-        deps.append((name, version))
+        deps[name] = version
         name = None
 
-print('\n'.join('{} = "{}"'.format(*dep) for dep in deps))
+print('\n'.join('{} = "{}"'.format(name, version) for (name, version) in sorted(deps.items())))
 

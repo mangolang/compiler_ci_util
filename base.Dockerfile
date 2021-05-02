@@ -6,8 +6,11 @@
 
 FROM python:3.9.4-slim AS collect_deps
 
-COPY collect_dependencies.py Cargo.toml ./
-RUN python3 collect_dependencies.py >> Cargo.toml && cat Cargo.toml
+RUN curl 'https://raw.githubusercontent.com/mangolang/compiler/master/Cargo.lock' > 'Cargo.lock'
+
+COPY collect_dependencies.py 'Cargo.toml' ./
+
+RUN python3 collect_dependencies.py 'Cargo.lock' >> Cargo.toml && cat Cargo.toml
 
 
 FROM clux/muslrust:nightly-2021-04-24 AS build
