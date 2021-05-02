@@ -26,6 +26,10 @@ It is called `mangocode/mango_daily_base` (`on dockerhub`_)
 
 Besides sharing code, this has the benefit of decreasing build times by a lot because dependencies can be pre-installed.
 
+To build locally:
+
+    docker build -f base.Dockerfile -t mangocode/mango_daily_base
+
 Links
 -------------------------------
 

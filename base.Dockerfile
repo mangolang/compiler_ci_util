@@ -4,7 +4,7 @@
 ##   otherwise it might not be re-built.
 ##
 
-FROM python:3.9.4-slim AS collect_deps
+FROM python:3.9.4 AS collect_deps
 
 RUN curl 'https://raw.githubusercontent.com/mangolang/compiler/master/Cargo.lock' > 'Cargo.lock'
 
@@ -26,6 +26,7 @@ RUN cargo install cargo-tree
 
 # Add the files needed to compile dependencies.
 COPY --from=collect_deps Cargo.toml Cargo.toml
+COPY --from=collect_deps Cargo.lock Cargo.lock
 RUN mkdir -p src  && touch src/lib.rs
 
 # Build the dependencies, remove Cargo files so they have to be re-added.

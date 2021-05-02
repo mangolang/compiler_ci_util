@@ -13,3 +13,5 @@ include = [
 ]
 
 [dependencies]
+
+# NOTE: dependencies will be appended here as part of Docker build
