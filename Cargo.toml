@@ -1,0 +1,15 @@
+[package]
+name = "mango-compiler-ci-util"
+description = "Just exists to pre-compile Mango dependencies"
+version = "0.0.1"
+authors = ["Mark <mverleg.noreply@gmail.com>"]
+homepage = "https://mangocode.org/"
+license = "Apache-2.0"
+edition = "2018"
+publish = false
+include = [
+    "src/**/*",
+    "Cargo.toml"
+]
+
+[dependencies]
