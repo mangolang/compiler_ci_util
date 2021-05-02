@@ -35,3 +35,4 @@ for line in data.splitlines():
         name = None
 
 print('\n'.join('{} = "{}"'.format(*dep) for dep in deps))
+
