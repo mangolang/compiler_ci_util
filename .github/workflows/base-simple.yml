@@ -31,7 +31,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          file: ./ci/base.Dockerfile
+          file: ./base.Dockerfile
           context: .
           push: true
           tags: mangocode/mango_daily_base:latest,mangocode/mango_daily_base:${{ steps.date.outputs.date }}
