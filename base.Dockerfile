@@ -23,6 +23,7 @@ RUN cargo install cargo-outdated
 RUN cargo install cargo-audit
 RUN cargo install cargo-deny
 RUN cargo install cargo-tree
+RUN cargo install wasm-pack
 
 # Add the files needed to compile dependencies.
 COPY --from=collect_deps Cargo.toml Cargo.toml

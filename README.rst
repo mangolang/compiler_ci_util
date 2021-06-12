@@ -28,7 +28,7 @@ Besides sharing code, this has the benefit of decreasing build times by a lot be
 
 To build locally:
 
-    docker build -f base.Dockerfile -t mangocode/mango_daily_base
+    docker build -f base.Dockerfile -t mangocode/mango_daily_base .
 
 Links
 -------------------------------
