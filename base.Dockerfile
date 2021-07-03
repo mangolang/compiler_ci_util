@@ -13,7 +13,7 @@ COPY collect_dependencies.py 'Cargo.toml' ./
 RUN python3 collect_dependencies.py 'Cargo.lock' >> Cargo.toml && cat Cargo.toml
 
 
-FROM clux/muslrust:nightly-2021-04-24 AS build
+FROM clux/muslrust:nightly-2021-07-02 AS build
 
 ENV RUST_BACKTRACE=1
 
