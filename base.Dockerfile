@@ -25,7 +25,7 @@ RUN cargo install cargo-deny
 RUN cargo install cargo-tree
 RUN cargo install cargo-edit
 #TODO @mark: remove --version once 0.10+ works on musl
-RUN cargo install wasm-pack --version 0.9.1
+RUN cargo install wasm-pack --version 0.9.1 --no-default-features
 
 # Add the files needed to compile dependencies.
 COPY --from=collect_deps Cargo.toml Cargo.toml
