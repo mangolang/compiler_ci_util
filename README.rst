@@ -12,6 +12,8 @@
     :target: https://opensource.org/licenses/Apache-2.0
 
 
+**This repository has been concontinued, Mango will migrate / has migrated to a new base Docker image.**
+
 Mango CLI utils for compiler
 ===============================
 

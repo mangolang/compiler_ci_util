@@ -6,7 +6,7 @@
 
 FROM python:3.9.4 AS collect_deps
 
-RUN curl 'https://raw.githubusercontent.com/mangolang/compiler/master/Cargo.lock' > 'Cargo.lock'
+RUN curl 'https://raw.githubusercontent.com/mangolang/cli/master/Cargo.lock' > 'Cargo.lock'
 
 COPY collect_dependencies.py 'Cargo.toml' ./
 
